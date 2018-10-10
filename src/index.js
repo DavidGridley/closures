@@ -24,7 +24,20 @@ function double(){
   return inner;
 }
 
+function total(){
+
+  let total = 0;
+
+  function arrayTotal(arr) {
+    total = arr.reduce((acc, num) => acc + num )
+    return total
+  }
+
+  return arrayTotal;
+}
+
 module.exports = {
   increase,
-  double
+  double,
+  total
 }

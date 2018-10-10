@@ -1,4 +1,4 @@
-const { increase, double } = require('../src/index.js');
+const { increase, double, total } = require('../src/index.js');
 
 test('increase', function(){
   const arg = 10;
@@ -19,3 +19,12 @@ test('double', function(){
 
   expect(result).toBe(expected);
 });
+
+test('total', function(){
+  const arr = [12, 14, 5, 2, 10];
+  const arrayTotal = total();
+  const result = arrayTotal(arr);
+
+  const expected = 43;
+  expect(result).toBe(expected);
+})

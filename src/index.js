@@ -2,7 +2,7 @@
 
 function increase(){
 
-  let number = 3;
+  let number = 2;
 
   function inner(newNumber){
     number = newNumber + number;
@@ -12,4 +12,19 @@ function increase(){
   return inner;
 }
 
-exports.increase = increase;
+function double(){
+
+  let multiplier = 2;
+
+  function inner(newNumber){
+    number = newNumber * multiplier;
+    return number;
+  }
+
+  return inner;
+}
+
+module.exports = {
+  increase,
+  double
+}

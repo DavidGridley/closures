@@ -5,7 +5,8 @@ const {
   gibberish,
   mergeSort,
   calculator,
-  dogHome
+  dogHome,
+  trainStation
 } = require("../src/index.js");
 
 test("increase", function() {
@@ -157,3 +158,24 @@ describe("dogHome", function() {
 
   });
 });
+
+
+describe('trainStation', function(){
+
+  let trainMethods;
+  beforeEach(() => {
+    trainMethods = trainStation();
+  })
+
+  test('arrive method with 1 person', function(){
+    trainMethods.arrive("phil");
+    const result = trainMethods.getPeople();
+    const name = result[0].name;
+    const money = result[0].money;
+    const nameExpected = "phil";
+    expect(name).toEqual(nameExpected)
+    expect(money).toBeLessThanOrEqual(20);
+    expect(money).toBeGreaterThan(0)
+  })
+
+})

@@ -106,6 +106,33 @@ function dogHome() {
   return dogMethods;
 }
 
+function trainStation() {
+  let peopleArr = [];
+
+  const trainMethods = {
+    arrive(person) {
+      peopleArr.push({name: person, money: Number(Math.random() * 21).toFixed(2)})
+    },
+
+    getPeople() {
+      return peopleArr;
+    },
+
+    giveMoney() {
+      let moneyToGive = (Math.random() * 20).toFixed(2);
+      let person = Math.floor(Math.random() * peopleArr.length);
+      peopleArr[person].money += moneyToGive;
+    },
+
+    trainArrives(){
+      peopleArr = peopleArr.filter(person => person.money < 20);
+      return peopleArr;
+    }
+  }
+
+  return trainMethods;
+}
+
 module.exports = {
   increase,
   double,
@@ -113,5 +140,6 @@ module.exports = {
   gibberish,
   mergeSort,
   calculator,
-  dogHome
+  dogHome,
+  trainStation
 };

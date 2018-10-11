@@ -1,4 +1,4 @@
-const { increase, double, total, gibberish, mergeSort } = require('../src/index.js');
+const { increase, double, total, gibberish, mergeSort, calculator } = require('../src/index.js');
 
 test('increase', function(){
   const arg = 10;
@@ -70,4 +70,15 @@ describe('mergeSort', function(){
     const expected = 6;
     expect(result).toBe(expected);
   })
+})
+
+test('calculator', function() {
+  const inner = calculator();
+  inner(5, 5, '+')
+  inner(10, 5, '-')
+  inner(10, 10, '*')
+  const result = inner(100,10,'/')
+  const expected = 125;
+
+  expect(result).toBe(expected)
 })

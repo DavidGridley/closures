@@ -66,10 +66,34 @@ function mergeSort() {
   return inner;
 }
 
+function calculator (){
+  let total = 0
+
+  function inner(n1,n2, operator) {
+    switch (operator) {
+      case "+" :
+        total += (n1 + n2)
+        break;
+      case "-" :
+        total +=  (n1 - n2)
+        break;
+      case "*" :
+        total +=   (n1 * n2)
+        break;
+      case "/" :
+        total +=   (n1 / n2)
+        break;
+    }
+    return total
+  }
+  return inner
+}
+
 module.exports = {
   increase,
   double,
   total,
   gibberish,
-  mergeSort
+  mergeSort,
+  calculator
 }

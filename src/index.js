@@ -36,8 +36,28 @@ function total(){
   return arrayTotal;
 }
 
+
+function gibberish() {
+  let string = "";
+
+  function inner(input) {
+    if (typeof input === 'object') {
+      string = string + input.join(' ') + "."
+      return string
+    }
+
+    string = string + " " + input
+
+    return string
+    }
+
+    return inner;
+}
+
 module.exports = {
   increase,
   double,
-  total
+  total,
+  gibberish
+
 }

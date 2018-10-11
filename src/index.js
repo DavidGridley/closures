@@ -54,10 +54,22 @@ function gibberish() {
     return inner;
 }
 
+function mergeSort() {
+  let arr = [];
+
+  function inner(number) {
+    arr.push(number)
+    arr.sort((a,b) => b - a)
+    return arr[0];
+  }
+
+  return inner;
+}
+
 module.exports = {
   increase,
   double,
   total,
-  gibberish
-
+  gibberish,
+  mergeSort
 }

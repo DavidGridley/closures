@@ -156,7 +156,4 @@ describe("dogHome", function() {
     expect(result2).toEqual(expected2);
 
   });
-
-
-
 });

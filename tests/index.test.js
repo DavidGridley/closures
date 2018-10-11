@@ -109,18 +109,54 @@ describe("dogHome", function() {
     expect(result).toEqual(expected);
   });
 
-  // test("use houseDog with > 1 dog", function() {
-  //   const result = dogMethods.houseDog(
-  //     "bonnie",
-  //     "springer",
-  //     "black and white",
-  //     "marlborough"
-  //   );
-  //   const expected = {
-  //     marlborough: [
-  //       { name: "bonnie", breed: "springer", colour: "black and white" }
-  //     ]
-  //   };
-  //   expect(result).toEqual(expected);
-  // });
+  test("use houseDog with two dogs in same town", function() {
+    dogMethods.houseDog("bonnie", "springer", "black and white", "marlborough");
+    dogMethods.houseDog("frank", "bulldog", "white", "marlborough");
+
+    const result = dogMethods.getDogsByLocation("marlborough");
+    const expected = [{
+      name: "bonnie",
+      breed: "springer",
+      colour: "black and white"
+    },
+    {
+      name: "frank",
+      breed: "bulldog",
+      colour: "white"
+    }];
+    expect(result).toEqual(expected);
+  });
+
+  test("use houseDog with two dogs in same town and one in another town", function() {
+    dogMethods.houseDog("bonnie", "springer", "black and white", "marlborough");
+    dogMethods.houseDog("frank", "bulldog", "white", "marlborough");
+    dogMethods.houseDog("pepsi", "undefined", "black", "streatham");
+
+    const result1 = dogMethods.getDogsByLocation("marlborough");
+    const expected1 = [{
+      name: "bonnie",
+      breed: "springer",
+      colour: "black and white"
+    },
+    {
+      name: "frank",
+      breed: "bulldog",
+      colour: "white"
+    }];
+
+    const result2 = dogMethods.getDogsByLocation("streatham");
+    const expected2 = [{
+      name: "pepsi",
+      breed: "undefined",
+      colour: "black"
+    }]
+
+
+    expect(result1).toEqual(expected1);
+    expect(result2).toEqual(expected2);
+
+  });
+
+
+
 });
